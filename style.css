@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'El Messiri', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn .play {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: #37d988;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 25px #37d98866;
+  transition: .5s;
+}
+
+.btn.active .play {
+  box-shadow: 0 0 0 150vh #37d988;
+}
+
+.btn .play::before {
+  content: '';
+  position: absolute;
+  border: 25px solid #fff;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 0px solid transparent;
+  transform: translateX(4px);
+}
+
+.btn p {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.clip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: .5s;
+}
+
+.clip.active {
+  transition-delay: .5s;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.clip video {
+  width: 900px;
+  /* max-width: 900px; */
+  outline: none;
+  border-radius: 4px;
+  border: 3px solid #888;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+}
+
+.clip .close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 1.5em;
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* for another advice */
+
+@media screen and (max-width: 991px){
+  .clip video {
+    max-width: 90%;
+  }
+}
